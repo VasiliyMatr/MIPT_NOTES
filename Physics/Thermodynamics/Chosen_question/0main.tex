@@ -1,0 +1,49 @@
+\documentclass[11pt,a4paper,oneside]{article} % dock basic params
+
+% Ru lang stuff
+    \usepackage[utf8x]{inputenc}
+    \usepackage[T2A]{fontenc}
+
+% for captions
+    \usepackage[labelsep=period]{caption}
+
+% for good text in tablets
+    \usepackage{array}
+    \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+% for math
+    \usepackage{amsmath}
+
+% no idents
+    \setlength{\parindent}{0cm}
+
+% dock fields 12 12 15 28
+    \usepackage[left=12mm, top=12mm, right=15mm, bottom=20mm, nohead, footskip=10mm, textheight = 245mm]{geometry}
+
+    \tolerance = 10000
+
+% DOC BODY
+\begin{document}
+
+    \begin{center}
+
+        \Huge
+        Вопрос по выбору: \\ \textbf {Квантовая теория теплоемкости}
+
+    \end{center}
+
+    \vspace{16cm}
+
+    \begin{flushright}
+
+        \normalsize
+        ВПВ подготовил Матренин Василий, Б01-006
+
+    \end{flushright}
+
+    \newpage
+
+    \input {1intro.tex}
+    \input {2theory.tex}
+
+\end{document}

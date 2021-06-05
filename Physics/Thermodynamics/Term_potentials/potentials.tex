@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper,oneside]{article} % dock basic params
+
+% Ru lang stuff
+    \usepackage[utf8x]{inputenc}
+    \usepackage[T2A]{fontenc}
+
+
+% for captions
+    \usepackage[labelsep=period]{caption}
+
+% for good text in tablets
+    \usepackage{array}
+    \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+% for math
+    \usepackage{amsmath}
+
+% no idents
+    \setlength{\parindent}{0cm}
+
+% dock fields 12 12 15 28
+    \usepackage[left=6mm, top=12mm, right=15mm, bottom=20mm, nohead, footskip=10mm, textheight = 245mm]{geometry}
+
+    \newcommand{\deriv}[3]{ \left( \frac{\partial #1}{\partial #2} \right) _{#3} }
+
+% DOC BODY
+\begin{document}
+
+    % some text placement parameters
+        \leftskip = 5mm
+
+    \begin{center}
+        \Huge
+
+        Термодинамические потенциалы
+
+    \end{center}
+
+    \begin{table}[h!]
+        \begin{center}
+            \caption*{Сводная таблица по термодинамическим потенциалам:}
+            \begin{tabular}{|| p {4.5cm} | P {2.5cm} | P {5.1cm} | P {3cm} | P {2.5cm} ||}
+
+                \hline
+                \hline
+
+                Название, для чего используется & Функция каких переменных & Диффиренциал (мат.) & Диффиренциал (через I начало) & Соотношения \\
+                \hline
+
+                Внутренняя энергия (работа в адиаб. процессе). & \footnotesize $$ U = U (S, V) $$ & \footnotesize $$ dU = \deriv{U}{V}{S} \cdot dV + \deriv{U}{S}{V} \cdot dS $$ & \footnotesize $$ dU = TdS - PdV $$ & \footnotesize $$ T = \deriv{U}{X}{V}, $$ $$ P = -\deriv{U}{V}{S} $$ \\
+                \hline
+
+                Энтальпия (работа в изобар. процессе). \newline Эффект Джоуля - Томпсона, течение газа & \footnotesize $$ I = U + PV $$ $$ I = I (S, P) $$ & \footnotesize $$ dI = \deriv{I}{S}{P} \cdot dS +  \deriv{I}{P}{S} \cdot dP $$ & \footnotesize $$ dI = TdS + VdP $$ & \footnotesize $$ T = \deriv{I}{S}{P}, $$ $$ V = \deriv{I}{P}{S} $$ \\
+                \hline
+
+                Свободная энергия (работа в изот. процессе). \newline Поверхностные явления. & \footnotesize $$ \Psi = U - TS $$ $$ \Psi = \Psi (T, V) $$ & \footnotesize $$ d\Psi = \deriv{\Psi}{T}{V} \cdot dT + \deriv{\Psi}{V}{T} \cdot dV $$ & \footnotesize $$ d\Psi = -SdT - PdV $$ & \footnotesize $$ S = -\deriv{\Psi}{T}{V}, $$ $$ P = -\deriv{\Psi}{V}{T} $$ \\
+                \hline
+
+                Термодинамический потенциал Гиббса. \newline Фазовые переходы. & \footnotesize $$ \Phi = U + PV - TS $$ $$ \Phi = \Phi (T, P) $$ & \footnotesize $$ d\Phi = \deriv{\Phi}{T}{P} \cdot dT + \deriv{\Phi}{P}{T} \cdot dP $$ & \footnotesize $$ d\Phi = -SdT + VdP $$ & \footnotesize $$ S = -\deriv{\Phi}{T}{P}, $$ $$ V = -\deriv{\Phi}{P}{T} $$ \\
+
+                \hline
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    \leftskip = 15mm
+
+    \begin{center}
+        \Large
+        Также есть соотношения для вторых производных:
+    \end{center}
+
+    Пусть есть $ f (x, y) $, тогда:
+    $$ df = X(x, y) \cdot dx + Y(x, y) \cdot dy , \quad \texttt {где:} $$  $$ X = \deriv{f}{x}{y}, Y = \deriv{f}{y}{x} $$
+
+    Если функция "приличная", то выполняется \textbf {Соотношение Максвелла}:
+    $$ \deriv{X}{y}{x} = \frac{\partial^2f}{\partial x \partial y} = \frac{\partial^2f}{\partial y \partial x} = \deriv{Y}{x}{y} $$
+
+    Применив это соотношение, получим (просто из таблички):
+
+    $$ \deriv{T}{V}{S} = \frac{\partial^2U}{\partial V \partial S} = \deriv{P}{S}{V}, \qquad
+       \deriv{T}{P}{S} = \frac{\partial^2I}{\partial P \partial S} = \deriv{V}{S}{P}, $$
+    $$ \deriv{S}{V}{T} = -\frac{\partial^2\Psi}{\partial V \partial T} = \deriv{P}{T}{V}, \qquad
+       \deriv{S}{P}{T} = -\frac{\partial^2\Phi}{\partial T \partial P} = -\deriv{V}{T}{P}. $$
+
+\newpage
+
+    \begin{center}
+        \Large
+        \textbf {Ур-я Гиббса-Гельмгольца} (еще полезные соотношения; см. табличку):
+    \end{center}
+
+    $$ \begin{cases} U = \Psi + TS, \\ S = -\deriv{\Psi}{T}{V} \end{cases} =>
+       U = \Psi - T \cdot \deriv{\Psi}{T}{V}. $$
+
+    $$ I = \Phi + TS =>
+       I = \Phi - T \cdot \deriv{\Phi}{T}{P}. $$
+
+    $$ I = U + PV =>
+       I = U - V \cdot \deriv{U}{V}{S}. $$
+
+    $$ \Phi = \Psi + PV =>
+       \Phi = \Psi - V \cdot \deriv{\Psi}{V}{T}. $$
+
+    \begin{center}
+        И так далее по табличке...
+    \end{center}
+
+\end{document}
